@@ -1,33 +1,23 @@
-from flask import Flask
-from flask import request
-from flask import render_template
-from flask import abort, redirect, url_for, make_response
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template('index.html')
 
-@app.route("/about")
+@app.route('/about')
 def about():
-    return app.send_static_file("about.html")
+    return render_template('about.html')
 
-@app.route("/gallery")
+@app.route('/gallery')
 def gallery():
-    return app.send_static_file("gallery.html")
+    return render_template('gallery.html')
 
-@app.route("/contact")
+
+@app.route('/contact')
 def contact():
-    return app.send_static_file("contact.html")
-
-# @app.route("/login", methods=["GET", "POST"])
-# def login():
-#     if request.method == "POST":
-#         return request.form["username"] + "+" + request.form["password"]
-#     else:
-#         return render_template("login.html")
+    return render_template('contact.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
