@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from AzureDB import AzureDB
 
 app = Flask(__name__)
 
@@ -19,5 +20,12 @@ def gallery():
 def contact():
     return render_template('contact.html')
 
+@app.route('/guestbook')
+def guestbook():
+    with AzureDB() as a:
+        data = a.azureGetData()
+    return render_template("guestbook.html", data = data)
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

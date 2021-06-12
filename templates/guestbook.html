@@ -1,0 +1,26 @@
+{#{% extends "base.html" %}#}
+{#{% block title %}Guest book{% endblock %}#}
+{#{% block content %}#}
+{#{% for result in data %}#}
+{#    <p>W dniu {{ result.createdDate }} {{ result.nick }} napisał {{ result.text }} </p>#}
+{#{% else %}#}
+{#    <p>Brak wpisów </p>#}
+{#{% endfor %}#}
+{#{% endblock %}#}
+
+{% extends "base.html" %}
+{% block title %}Guest Book{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <h1>Guest Book</h1>
+        {% for result in data %}
+            <div class="row">
+                {{ result.nick }} napisał {{ result.text }}
+            </div>
+        {% else %}
+            <p>Brak wpisów </p>
+        {% endfor %}
+
+    </div>
+{% endblock %}
