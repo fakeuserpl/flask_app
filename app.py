@@ -10,8 +10,8 @@ app.secret_key = secrets.token_hex(16)
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 github_blueprint = make_github_blueprint(
-    client_id="818a9e110420c482eb69",
-    client_secret="91ee0a85d576d15600e21a3f8e7a5ee084722b56"
+    client_id="9e1474dcf340e4df1c9b",
+    client_secret="a6956b0e54abe48211c2ca5a1536574178909401"
 )
 app.register_blueprint(github_blueprint, url_prefix='/login')
 
